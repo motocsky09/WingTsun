@@ -20,7 +20,7 @@
 .nav_logo {
   display: flex;
   align-items: center;
-  color: white;
+  color: #fff;
   font-size: 1.25rem;
   font-weight: bold;
 }
@@ -32,6 +32,8 @@
 
 .links_list {
   display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
 .menu_items {
@@ -43,7 +45,7 @@
 }
 
 .menu_link {
-  color: #e0e0e0;
+  color: #fff;
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: 1px;
@@ -65,6 +67,33 @@
   height: 3px;
   background-color: white;
   transition: all 0.3s ease;
+}
+
+.social_links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.social_links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #ff9800;
+  color: #c4c9cc;
+  transition: all 0.3s ease;
+}
+
+.social_links a:hover {
+  background-color: #ff9800;
+  color: #fff;
+}
+
+.social_links a svg {
+  fill: currentColor;
 }
 
 @media (max-width: 768px) {
@@ -95,5 +124,10 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .social_links {
+    justify-content: center;
   }
 }
