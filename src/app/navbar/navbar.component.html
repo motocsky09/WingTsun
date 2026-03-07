@@ -1,0 +1,22 @@
+<nav class="nav_menu">
+  <div class="nav_container">
+    <a routerLink="/" class="nav_logo">
+      <img src="assets/logo.png" alt="Logo Wing Tsun" class="small_logo_image">
+      Wing Tsun Oradea
+    </a>
+    
+    <div class="mobile_menu_button" (click)="toggleMenu()">
+      <div class="button_line"></div>
+      <div class="button_line"></div>
+      <div class="button_line"></div>
+    </div>
+    
+    <div class="links_list" [class.open]="menuOpen">
+      <ul class="menu_items">
+        <li><a routerLink="/despre" class="menu_link" (click)="closeMenu()">Despre Noi</a></li>
+        <li><a routerLink="/program" class="menu_link" (click)="closeMenu()">Program</a></li>
+        <li><a routerLink="/contact" class="menu_link" (click)="closeMenu()">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

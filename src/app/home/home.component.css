@@ -1,32 +1,231 @@
-.hero-section {
+.main_section {
   position: relative;
   min-height: 80vh;
-  /* We use a dark gradient to ensure text readability if we add a background image later */
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none"><rect width="100%" height="100%" fill="%23222"/></svg>');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Parallax effect */
-  margin-top: -24px; /* Adjust to pull under navbar if navbar has margin, or just to blend */
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: -24px;
 }
 
-.hero-content {
-  z-index: 2;
+.main_content {
   position: relative;
+  z-index: 2;
+  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.shadow-text {
+.large_title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 20px;
+}
+
+.main_description {
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+  color: #f8f9fa;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-.card {
+.large_red_button {
+  background-color: #d32f2f;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.25rem;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-right: 15px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.large_red_button:hover {
+  background-color: #b71c1c;
+  color: white;
+}
+
+.large_white_button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 13px 30px;
+  font-size: 1.25rem;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.large_white_button:hover {
+  background-color: white;
+  color: black;
+}
+
+.padded_section {
+  padding: 80px 0;
+}
+
+.dark_section {
+  padding: 80px 0;
+  background-color: #1a1a1a;
+}
+
+.common_container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.flex_row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.half_column {
+  flex: 1;
+  min-width: 300px;
+  padding: 15px;
+}
+
+.orange_title {
+  color: #ff9800;
+  margin-bottom: 20px;
+}
+
+.centered_image {
+  text-align: center;
+}
+
+.image_box {
+  padding: 40px;
+  border: 2px solid #ff9800;
+  border-radius: 8px;
+  background: rgba(255, 152, 0, 0.1);
+  display: inline-block;
+}
+
+.logo_image {
+  max-height: 200px;
+  opacity: 0.8;
+}
+
+.centered_header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.flex_row_spaced {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.training_card {
+  background-color: #212529;
+  color: white;
+  padding: 30px;
+  border-radius: 5px;
+  border-top: 2px solid #ff9800;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
+.training_card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-.text-warning {
-  color: #ff9800 !important;
+.card_title {
+  color: #ff9800;
+  margin-bottom: 15px;
+}
+
+.divider_line {
+  border: 1px solid #6c757d;
+  margin: 20px 0;
+}
+
+.unstyled_list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.unstyled_list li {
+  margin-bottom: 15px;
+}
+
+.fully_centered {
+  text-align: center;
+}
+
+.medium_description {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.small_white_button {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.small_white_button:hover {
+  background-color: white;
+  color: black;
+}
+
+.flex_center {
+  display: flex;
+  justify-content: center;
+}
+
+.contact_box {
+  background-color: #212529;
+  padding: 30px;
+  border-radius: 5px;
+  border: 1px solid #6c757d;
+  max-width: 600px;
+  width: 100%;
+}
+
+.spaced_orange_text {
+  color: #ff9800;
+  margin-bottom: 30px;
+}
+
+.contact_details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.contact_item {
+  text-align: center;
+}
+
+.orange_label {
+  display: block;
+  color: #ff9800;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
 }

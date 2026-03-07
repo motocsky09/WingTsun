@@ -1,0 +1,106 @@
+.footer_page, .footer_page * {
+  font-family: Arial, sans-serif !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.footer_page {
+    background-color: #212529;
+    color: white;
+    padding: 10px; 
+    border-top: 2px solid #ff9800;
+    font-size: 1.25rem;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.footer_content {
+    display: flex; 
+    justify-content: space-between; 
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.footer_section {
+    width: 33.3%; 
+}
+
+.footer_links, .footer_info {
+    list-style: none; 
+    padding: 0; 
+    margin: 0;
+}
+
+.footer_links img {
+    margin-right: 10px; 
+    display: block; 
+    margin: 0 auto; 
+    padding: 7px;
+}
+
+.footer_info li {
+    margin-bottom: 10px; 
+    font-size: 15px; 
+    margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer_right {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end; 
+}
+
+.footer_right span {
+  margin-right: 5px;
+  font-size: 10px;
+  color: #e0e0e0;
+}
+
+.flag {
+  display: flex;
+  width: 20px;
+  height: 15px;
+  border: 1px solid rgb(0,0,0); 
+}
+
+.stripe {
+  width: 33.3%; 
+  height: 100%;
+}
+
+.stripe1 {
+  background-color: #002B7F; 
+}
+
+.stripe2 {
+  background-color: #FCD116; 
+}
+
+.stripe3 {
+  background-color: #CE1126; 
+}
+
+@media screen and (max-width: 768px) {
+  .footer_content {
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .footer_section {
+    width: 100%; 
+    margin-bottom: 20px; 
+    text-align: center;
+  }
+
+  .footer_right {
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    margin-top: 10px; 
+  }
+}
