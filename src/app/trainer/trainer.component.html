@@ -1,0 +1,52 @@
+<div class="trainer-page-container">
+  <header class="trainer-header">
+    <img [src]="profileImage" alt="Profile Image of Si-Fu Costan Gabriel-Alex" class="profile-image">
+    <h1>Si-Fu Costan Gabriel-Alex</h1>
+    <p class="tagline">Instructor de Wing Tsun Kung-Fu</p>
+  </header>
+
+  <section class="trainer-intro">
+    <div class="description-section">
+      <p>{{ descriptionPart1 }}</p>
+    </div>
+  </section>
+
+  <section class="media-showcase">
+    <div class="media-grid">
+      <ng-container *ngFor="let media of mediaFiles.slice(0, 5)">
+        <img *ngIf="media.type === 'image'" [src]="media.src" alt="Wing Tsun Training" class="media-item">
+        <video *ngIf="media.type === 'video'" [src]="media.src" controls class="media-item"></video>
+      </ng-container>
+    </div>
+  </section>
+
+  <section class="trainer-philosophy">
+    <div class="description-section">
+      <p>{{ descriptionPart2 }}</p>
+    </div>
+  </section>
+
+  <section class="media-showcase">
+    <div class="media-grid">
+      <ng-container *ngFor="let media of mediaFiles.slice(5, 10)">
+        <img *ngIf="media.type === 'image'" [src]="media.src" alt="Wing Tsun Training" class="media-item">
+        <video *ngIf="media.type === 'video'" [src]="media.src" controls class="media-item"></video>
+      </ng-container>
+    </div>
+  </section>
+
+  <section class="trainer-community">
+    <div class="description-section">
+      <p>{{ descriptionPart3 }}</p>
+    </div>
+  </section>
+
+  <section class="media-showcase">
+    <div class="media-grid">
+      <ng-container *ngFor="let media of mediaFiles.slice(10)">
+        <img *ngIf="media.type === 'image'" [src]="media.src" alt="Wing Tsun Training" class="media-item">
+        <video *ngIf="media.type === 'video'" [src]="media.src" controls class="media-item"></video>
+      </ng-container>
+    </div>
+  </section>
+</div>
