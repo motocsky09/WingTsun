@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./trainer.component.css']
 })
 export class TrainerComponent {
-  profileImage = 'assets/images/trainer/profile image.jpeg';
+  profileImage = 'assets/images/trainer/profile image 2.png';
 
   descriptionPart1 = `Si-Fu Costan Gabriel-Alex este instructor de Wing Tsun Kung-Fu in Oradea, dedicat studiului profund și transmiterii autentice a principiilor acestei arte marțiale tradiționale chinezești. Activitatea sa este ghidată de respectul pentru tradiție, disciplină și dorința de a păstra integritatea sistemului Wing Tsun, așa cum a fost transmis de-a lungul generațiilor.
 Drumul său în artele marțiale este construit pe muncă constantă, perseverență și o căutare continuă a perfecțiunii tehnice. Pentru Si-Fu Gabriel, Wing Tsun nu reprezintă doar un sistem de luptă, ci o cale de dezvoltare personală și autocunoaștere. Prin antrenamentele sale, el urmărește să transmită elevilor nu doar tehnicile sistemului, ci și principiile fundamentale care stau la baza acestei arte: eficiență, adaptabilitate, control și claritate mentală în situații de conflict.`;
