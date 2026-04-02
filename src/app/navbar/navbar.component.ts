@@ -15,4 +15,9 @@ export class NavbarComponent {
   closeMenu() {
     this.menuOpen = false;
   }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    this.closeMenu();
+  }
 }

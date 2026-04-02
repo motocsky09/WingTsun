@@ -5,45 +5,29 @@
     <p class="tagline">Instructor de Wing Tsun Kung-Fu</p>
   </header>
 
-  <section class="trainer-intro">
-    <div class="description-section">
-      <p>{{ descriptionPart1 }}</p>
-    </div>
-  </section>
+  <ng-container *ngFor="let section of sections; let i = index">
+    <section class="trainer-section">
+      <div class="description-section">
+        <h2 class="section-title">{{ section.title }}</h2>
+        <div class="section-content">
+          <p *ngFor="let paragraph of section.content">{{ paragraph }}</p>
+        </div>
+      </div>
+    </section>
 
-  <section class="media-showcase">
+    <section class="media-showcase" *ngIf="mediaFiles.slice(i * 5, (i + 1) * 5).length > 0">
+      <div class="media-grid">
+        <ng-container *ngFor="let media of mediaFiles.slice(i * 5, (i + 1) * 5)">
+          <img *ngIf="media.type === 'image'" [src]="media.src" alt="Wing Tsun Training" class="media-item">
+          <video *ngIf="media.type === 'video'" [src]="media.src" controls class="media-item"></video>
+        </ng-container>
+      </div>
+    </section>
+  </ng-container>
+
+  <section class="media-showcase" *ngIf="mediaFiles.length > sections.length * 5">
     <div class="media-grid">
-      <ng-container *ngFor="let media of mediaFiles.slice(0, 5)">
-        <img *ngIf="media.type === 'image'" [src]="media.src" alt="Wing Tsun Training" class="media-item">
-        <video *ngIf="media.type === 'video'" [src]="media.src" controls class="media-item"></video>
-      </ng-container>
-    </div>
-  </section>
-
-  <section class="trainer-philosophy">
-    <div class="description-section">
-      <p>{{ descriptionPart2 }}</p>
-    </div>
-  </section>
-
-  <section class="media-showcase">
-    <div class="media-grid">
-      <ng-container *ngFor="let media of mediaFiles.slice(5, 10)">
-        <img *ngIf="media.type === 'image'" [src]="media.src" alt="Wing Tsun Training" class="media-item">
-        <video *ngIf="media.type === 'video'" [src]="media.src" controls class="media-item"></video>
-      </ng-container>
-    </div>
-  </section>
-
-  <section class="trainer-community">
-    <div class="description-section">
-      <p>{{ descriptionPart3 }}</p>
-    </div>
-  </section>
-
-  <section class="media-showcase">
-    <div class="media-grid">
-      <ng-container *ngFor="let media of mediaFiles.slice(10)">
+      <ng-container *ngFor="let media of mediaFiles.slice(sections.length * 5)">
         <img *ngIf="media.type === 'image'" [src]="media.src" alt="Wing Tsun Training" class="media-item">
         <video *ngIf="media.type === 'video'" [src]="media.src" controls class="media-item"></video>
       </ng-container>

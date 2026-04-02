@@ -97,7 +97,7 @@
 }
 
 .orange_title {
-  color: #ff9800;
+  color: rgb(215, 48, 33);
   margin-bottom: 20px;
 }
 
@@ -107,7 +107,7 @@
 
 .image_box {
   padding: 40px;
-  border: 2px solid #ff9800;
+  border: 2px solid rgb(215, 48, 33);
   border-radius: 8px;
   background: rgba(255, 152, 0, 0.1);
   display: inline-block;
@@ -135,7 +135,7 @@
   color: white;
   padding: 30px;
   border-radius: 5px;
-  border-top: 2px solid #ff9800;
+  border-top: 2px solid rgb(215, 48, 33);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   flex: 1;
   min-width: 300px;
@@ -149,7 +149,7 @@
 }
 
 .card_title {
-  color: #ff9800;
+  color: rgb(215, 48, 33);
   margin-bottom: 15px;
 }
 
@@ -214,7 +214,7 @@
 }
 
 .spaced_orange_text {
-  color: #ff9800;
+  color: rgb(215, 48, 33);
   margin-bottom: 30px;
 }
 
@@ -231,7 +231,7 @@
 
 .orange_label {
   display: block;
-  color: #ff9800;
+  color: rgb(215, 48, 33);
   margin-bottom: 5px;
   font-size: 0.9rem;
 }
