@@ -12,6 +12,13 @@
   margin-top: -24px;
 }
 
+@media (max-width: 768px) {
+  .main_section {
+    padding-top: 50px; 
+  }
+}
+
+
 .main_content {
   position: relative;
   z-index: 2;

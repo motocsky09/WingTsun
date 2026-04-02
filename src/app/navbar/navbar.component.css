@@ -101,6 +101,10 @@
     padding: 0 20px;
   }
 
+  .small_logo_image {
+    height: 60px;
+  }
+
   .mobile_menu_button {
     display: flex;
   }
@@ -108,7 +112,7 @@
   .links_list {
     display: none;
     position: absolute;
-    top: 70px;
+    top: 100%;
     left: 0;
     width: 100%;
     background-color: #212529;
