@@ -1,12 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-trainer',
   templateUrl: './trainer.component.html',
   styleUrls: ['./trainer.component.css']
 })
-export class TrainerComponent {
+export class TrainerComponent implements AfterViewInit, OnDestroy {
+
+  constructor(private titleService: Title, private metaService: Meta) {
+    this.titleService.setTitle('Instructor Si-Fu Costan Gabriel-Alex | Wing Tsun Oradea');
+    this.metaService.updateTag({
+      name: 'description',
+      content: 'Si-Fu Costan Gabriel-Alex, instructor de Wing Tsun Kung Fu în Oradea, afiliat Five Elements Wing Tsun Association. Drumul, valorile și activitatea sa.'
+    });
+  }
+  padNumber(n: number): string {
+    return n.toString().padStart(2, '0');
+  }
+
   profileImage = 'assets/images/trainer/profile image 2.png';
+
+  lightboxOpen = false;
+  lightboxIndex = 0;
+
+  images = [
+    'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.48 (1).jpeg',
+    'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.48 (2).jpeg',
+    'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.48 (3).jpeg',
+    'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.48 (4).jpeg',
+    'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.48.jpeg',
+    'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.49 (1).jpeg',
+    'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.49 (2).jpeg',
+    'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.49 (3).jpeg',
+    'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.49.jpeg',
+  ];
+
+  videos = [
+    'assets/images/trainer/WhatsApp Video 2026-03-12 at 21.34.08.mp4',
+    'assets/images/trainer/WhatsApp Video 2026-03-12 at 21.34.09.mp4',
+    'assets/images/trainer/WhatsApp Video 2026-03-12 at 21.34.10.mp4',
+    'assets/images/trainer/WhatsApp Video 2026-03-12 at 21.34.14 (1).mp4',
+    'assets/images/trainer/WhatsApp Video 2026-03-12 at 21.34.14.mp4',
+    'assets/images/trainer/WhatsApp Video 2026-03-13 at 10.42.26.mp4',
+    'assets/images/trainer/WhatsApp Video 2026-03-13 at 10.45.44.mp4',
+  ];
 
   sections = [
     {
@@ -32,22 +70,54 @@ export class TrainerComponent {
     }
   ];
 
-  mediaFiles = [
-    { type: 'image', src: 'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.48 (1).jpeg' },
-    { type: 'image', src: 'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.48 (2).jpeg' },
-    { type: 'image', src: 'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.48 (3).jpeg' },
-    { type: 'image', src: 'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.48 (4).jpeg' },
-    { type: 'image', src: 'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.48.jpeg' },
-    { type: 'image', src: 'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.49 (1).jpeg' },
-    { type: 'image', src: 'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.49 (2).jpeg' },
-    { type: 'image', src: 'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.49 (3).jpeg' },
-    { type: 'image', src: 'assets/images/trainer/WhatsApp Image 2026-03-12 at 21.34.49.jpeg' },
-    { type: 'video', src: 'assets/images/trainer/WhatsApp Video 2026-03-12 at 21.34.08.mp4' },
-    { type: 'video', src: 'assets/images/trainer/WhatsApp Video 2026-03-12 at 21.34.09.mp4' },
-    { type: 'video', src: 'assets/images/trainer/WhatsApp Video 2026-03-12 at 21.34.10.mp4' },
-    { type: 'video', src: 'assets/images/trainer/WhatsApp Video 2026-03-12 at 21.34.14 (1).mp4' },
-    { type: 'video', src: 'assets/images/trainer/WhatsApp Video 2026-03-12 at 21.34.14.mp4' },
-    { type: 'video', src: 'assets/images/trainer/WhatsApp Video 2026-03-13 at 10.42.26.mp4' },
-    { type: 'video', src: 'assets/images/trainer/WhatsApp Video 2026-03-13 at 10.45.44.mp4' },
-  ];
+  private observer!: IntersectionObserver;
+  private keyHandler = (e: KeyboardEvent) => {
+    if (!this.lightboxOpen) return;
+    if (e.key === 'Escape') this.closeLightbox();
+    if (e.key === 'ArrowLeft') this.prevImage();
+    if (e.key === 'ArrowRight') this.nextImage();
+  };
+
+  ngAfterViewInit(): void {
+    document.addEventListener('keydown', this.keyHandler);
+
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            this.observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.07 }
+    );
+
+    document.querySelectorAll('.reveal').forEach(el => this.observer.observe(el));
+  }
+
+  ngOnDestroy(): void {
+    document.removeEventListener('keydown', this.keyHandler);
+    this.observer?.disconnect();
+    document.body.style.overflow = '';
+  }
+
+  openLightbox(index: number): void {
+    this.lightboxIndex = index;
+    this.lightboxOpen = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeLightbox(): void {
+    this.lightboxOpen = false;
+    document.body.style.overflow = '';
+  }
+
+  prevImage(): void {
+    this.lightboxIndex = (this.lightboxIndex - 1 + this.images.length) % this.images.length;
+  }
+
+  nextImage(): void {
+    this.lightboxIndex = (this.lightboxIndex + 1) % this.images.length;
+  }
 }

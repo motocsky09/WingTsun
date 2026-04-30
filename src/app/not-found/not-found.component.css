@@ -1,0 +1,76 @@
+.not-found-page {
+  min-height: 100vh;
+  background: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  padding: 2rem;
+  background: linear-gradient(160deg, #0d0d0d 0%, #1c0a09 55%, #0d0d0d 100%);
+}
+
+.nf-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  max-width: 520px;
+}
+
+.nf-badge {
+  display: inline-block;
+  background: rgba(215, 48, 33, 0.12);
+  border: 1px solid rgba(215, 48, 33, 0.45);
+  color: rgb(215, 48, 33);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  padding: 0.35rem 1.2rem;
+  border-radius: 50px;
+}
+
+.nf-code {
+  font-size: 7rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, rgb(215, 48, 33), #ff5722);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  letter-spacing: -4px;
+}
+
+.nf-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.nf-desc {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.75;
+  margin: 0;
+}
+
+.nf-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, rgb(215, 48, 33), #c0392b);
+  color: #fff;
+  padding: 0.85rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(215, 48, 33, 0.35);
+}
+
+.nf-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(215, 48, 33, 0.55);
+}

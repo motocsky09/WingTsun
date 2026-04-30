@@ -1,9 +1,14 @@
 <section class="workout-section">
-  <div class="container">
-    <header class="section-header">
+
+  <div class="workout-hero">
+    <div class="hero-content">
+      <span class="hero-badge">Arte Marțiale</span>
       <h1 class="title">Antrenamente <span class="highlight">Wing Tsun</span></h1>
-      <div class="header-line"></div>
-    </header>
+      <div class="hero-divider"></div>
+    </div>
+  </div>
+
+  <div class="container">
 
     <div class="intro-card">
       <div class="intro-content">
@@ -17,13 +22,16 @@
     </div>
 
     <div class="gallery-section">
-      <h2 class="subtitle">Momente din Antrenamente</h2>
-      
+      <div class="section-label">
+        <h2 class="subtitle">Momente din Antrenamente</h2>
+        <div class="subtitle-divider"></div>
+      </div>
+
       <div class="gallery-grid">
-        
-        <article class="gallery-card special-card">
+
+        <article class="gallery-card special-card" (click)="openLightbox(0)" style="cursor:pointer">
           <div class="card-image-wrapper">
-            <img src="assets/workout/1.JPG" alt="Antrenament Wing Tsun - Primii discipoli Oradea">
+            <img [src]="images[0]" alt="Antrenament Wing Tsun - Primii discipoli Oradea">
             <div class="card-overlay">
               <span class="date-badge">05.03.2026</span>
               <h3 class="card-title">Primii discipoli Wing Tsun Oradea</h3>
@@ -33,28 +41,35 @@
           </div>
         </article>
 
-        <article class="gallery-card">
+        <article class="gallery-card" (click)="openLightbox(1)" style="cursor:pointer">
           <div class="card-image-wrapper">
-            <img src="assets/workout/2.JPG" alt="Antrenament Wing Tsun 2">
+            <img [src]="images[1]" alt="Antrenament Wing Tsun 2">
+            <div class="card-hover-overlay"></div>
           </div>
         </article>
-        
-        <article class="gallery-card">
+
+        <article class="gallery-card" (click)="openLightbox(2)" style="cursor:pointer">
           <div class="card-image-wrapper">
-            <img src="assets/workout/3.JPG" alt="Antrenament Wing Tsun 3">
+            <img [src]="images[2]" alt="Antrenament Wing Tsun 3">
+            <div class="card-hover-overlay"></div>
           </div>
         </article>
-        
-        <article class="gallery-card">
+
+        <article class="gallery-card" (click)="openLightbox(3)" style="cursor:pointer">
           <div class="card-image-wrapper">
-            <img src="assets/workout/4.JPG" alt="Antrenament Wing Tsun 4">
+            <img [src]="images[3]" alt="Antrenament Wing Tsun 4">
+            <div class="card-hover-overlay"></div>
           </div>
         </article>
+
       </div>
     </div>
 
     <div class="video-section">
-      <h2 class="subtitle">Antrenament Video</h2>
+      <div class="section-label">
+        <h2 class="subtitle">Antrenament Video</h2>
+        <div class="subtitle-divider"></div>
+      </div>
       <div class="video-wrapper">
         <video controls preload="metadata" class="custom-video">
           <source src="assets/workout/v1.mp4" type="video/mp4">
@@ -64,4 +79,45 @@
     </div>
 
   </div>
+
+  <div class="workout-cta">
+    <div class="cta-inner">
+      <span class="cta-eyebrow">Alătură-te echipei</span>
+      <h2 class="cta-title">Te așteptăm la antrenamente!</h2>
+      <p class="cta-desc">
+        Indiferent de vârstă sau experiență anterioară, ușile noastre sunt deschise pentru tine.
+        Primul antrenament este complet gratuit — vino să descoperi Wing Tsun Kung Fu alături de noi.
+      </p>
+      <div class="cta-actions">
+        <a [routerLink]="['/']" [fragment]="'contact'" class="cta-btn-primary">Înscrie-te gratuit</a>
+        <a [routerLink]="['/']" [fragment]="'training'" class="cta-btn-ghost">Vezi programul</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="lightbox" [class.open]="lightboxOpen" (click)="closeLightbox()">
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+      <button class="lb-close" (click)="closeLightbox()" aria-label="Închide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <button class="lb-nav lb-prev" (click)="prevImage()" aria-label="Anterior">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <div class="lb-image-wrap">
+        <img [src]="images[lightboxIndex]" alt="Wing Tsun Antrenament" class="lb-image">
+      </div>
+      <button class="lb-nav lb-next" (click)="nextImage()" aria-label="Următor">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="9 18 15 12 9 6"/>
+        </svg>
+      </button>
+      <div class="lb-counter">{{ lightboxIndex + 1 }} / {{ images.length }}</div>
+    </div>
+  </div>
+
 </section>
