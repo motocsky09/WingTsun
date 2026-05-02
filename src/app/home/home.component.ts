@@ -76,13 +76,13 @@ export class HomeComponent implements OnInit {
       grade: 'Începător gradul 2'
     },
     {
-      name: 'Eduard .',
+      name: 'Eduard C.',
       since: 'Elev din 03/2026',
       text: 'Căutam ceva practic pentru autoapărare. Wing Tsun m-a surprins – nu depinde de forță fizică, ci de tehnică și inteligență. Am câștigat și multă încredere în mine.',
       grade: 'Începător gradul 1'
     },
     {
-      name: 'Marius M.',
+      name: 'Marius B.',
       since: 'Elev din 02/2026',
       text: 'Am adus și copilul meu la grupa de copii și ambii suntem extrem de mulțumiți. Disciplina și respectul predate alături de tehnicile de luptă sunt un bonus neașteptat de valoros.',
       grade: 'Începător gradul 2'

@@ -43,13 +43,13 @@ export class GradesComponent implements AfterViewInit, OnDestroy {
       code: 'EÎ1',
       name: 'Elev Începător 1',
       description: 'Primul pas în Wing Tsun. Vei dobândi bazele autoapărării, principiile fundamentale de poziție și primele tehnici de blocare și lovire.',
-      perk: 'Tricou oficial de antrenament inclus'
+      perk: '50% discount la primul tricou oficial de antrenament.'
     },
     {
       code: 'EÎ2',
       name: 'Elev Începător 2',
       description: 'Aprofundarea fundamentelor Wing Tsun. Introducere în principiile de bază ale sistemului și primele exerciții de Chi Sao.',
-      perk: '50% reducere la pantaloni de antrenament'
+      perk: '50% reducere la prima pereche de pantaloni de antrenament'
     }
   ];
 
@@ -68,7 +68,7 @@ export class GradesComponent implements AfterViewInit, OnDestroy {
       color: '#e8472e',
       colorRgb: '232, 71, 46',
       form: 'Siu Nim Tao',
-      formTranslation: 'Mintea Cea Mică',
+      formTranslation: 'Calea micului gând',
       description: 'Prima formă a sistemului Wing Tsun stabilește fundația întregii practice. Mișcările lente și deliberate cultivă structura corporală corectă, relaxarea musculară profundă și concentrarea mentală. Această etapă formează baza solidă pe care se construiesc toate tehnicile avansate ale sistemului.',
       techniques: [
         'Poziția fundamentală Yee Chi Kim Yeung Ma',
