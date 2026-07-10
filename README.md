@@ -67,63 +67,6 @@ grading system, instructor profile, and direct sign-ups via WhatsApp.
 
 ---
 
-## Run locally
-
-**Requirements:** [Node.js](https://nodejs.org/) 18+ and npm.
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/<user>/<repo>.git
-cd wing_tsun
-
-# 2. Install dependencies
-npm install
-
-# 3. Start the dev server
-npm start
-```
-
-The app will be available at **http://localhost:4200/** and reloads automatically on changes.
-
----
-
-## Production build
-
-```bash
-npm run build
-```
-
-Optimized files are generated in **`dist/wing_tsun/`**.
-
----
-
-## Deploy on Netlify
-
-The project is published on Netlify. Settings:
-
-| Setting | Value |
-|---------|-------|
-| **Build command** | `npm run build` |
-| **Publish directory** | `dist/wing_tsun` |
-
-Since this is a client-side routed SPA, a redirect rule is required so that direct routes
-(e.g. `/grade`) don't return a 404. Add a **`src/_redirects`** file (included in `assets`)
-or a **`netlify.toml`** in the project root:
-
-```toml
-# netlify.toml
-[build]
-  command = "npm run build"
-  publish = "dist/wing_tsun"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-```
-
----
-
 ## Project structure
 
 ```
@@ -143,16 +86,3 @@ src/
 
 ---
 
-## Contact
-
-- **Address:** Str. General Traian Moșoiu Nr. 12, Oradea, Romania
-- **Email:** wingtsunoradea6@gmail.com
-- **Instagram / Facebook / TikTok:** `@wingtsunoradea` / `wingtsunkungfuoradea`
-
----
-
-<div align="center">
-
-Crafted by **motocsky**
-
-</div>
